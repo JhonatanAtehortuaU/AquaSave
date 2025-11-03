@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AquaSave.Forms;
+using AquaSave.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,11 @@ namespace AquaSave
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            InMemoryRepository repo = new InMemoryRepository();
+
+            Application.Run(new FrmLogin(repo));
+
         }
     }
 }
