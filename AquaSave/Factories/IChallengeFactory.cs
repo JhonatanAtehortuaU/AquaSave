@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace AquaSave.Factories
 {
+    //Interfaz Factory Challenge
     public interface IChallengeFactory
     {
         Challenge Agregar(int id,string titulo, string descripcion, int puntos, string tipo, string dificultad, string usuarioAsig);

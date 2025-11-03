@@ -17,6 +17,5 @@ namespace AquaSave.Models
 
         public string usuarioAsig {  get; set; }
 
-        public abstract string ObtenerInformacion();
     }
 }

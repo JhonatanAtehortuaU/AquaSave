@@ -58,9 +58,29 @@ namespace AquaSave.Forms
             if (grid.Columns.Contains("usuarioAsig"))
                 grid.Columns["usuarioAsig"].Visible = false;
 
+            if (grid.Columns.Contains("descripcion"))
+                grid.Columns["descripcion"].Visible = false;
+
+            if (grid.Columns.Contains("titulo"))
+                grid.Columns["titulo"].HeaderText = "🏷️ Título";
+
+            if (grid.Columns.Contains("puntos"))
+                grid.Columns["puntos"].HeaderText = "⭐ Puntos";
+
+            if (grid.Columns.Contains("tipo"))
+                grid.Columns["tipo"].HeaderText = "📅 Tipo";
+
+            if (grid.Columns.Contains("dificulta"))
+                grid.Columns["dificulta"].HeaderText = "🔥 Dificultad";
+
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            grid.ReadOnly = true;
-            grid    .SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            foreach (DataGridViewColumn col in grid.Columns)
+            {
+                col.MinimumWidth = 100; // ancho mínimo para que no se corte
+                col.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+            grid.AutoResizeColumns();
         }
 
         private void dataGridDiarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -82,6 +102,28 @@ namespace AquaSave.Forms
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
+        }
+
+        private void dataGridSemanales_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Evitar errores si se hace doble clic en el encabezado
+            if (e.RowIndex < 0) return;
+
+            // Obtener la fila seleccionada
+            var fila = dataGridSemanales.Rows[e.RowIndex];
+
+            string titulo = fila.Cells["titulo"].Value?.ToString() ?? "Sin título";
+            string descripcion = fila.Cells["descripcion"].Value?.ToString() ?? "Sin descripción";
+            string tipo = fila.Cells["tipo"].Value?.ToString() ?? "N/A";
+            string puntos = fila.Cells["puntos"].Value?.ToString() ?? "0";
+
+            MessageBox.Show(
+                $"Reto: {titulo}\n\nDescripción: {descripcion}\nTipo: {tipo}\nPuntos: {puntos}",
+                "Detalle del reto",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+
         }
 
     }

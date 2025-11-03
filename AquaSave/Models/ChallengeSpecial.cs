@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 namespace AquaSave.Models
 {
-    public class ChallengeSpecial:Challenge
-    {
-        public override string ObtenerInformacion() => $"Reto especial: {titulo} - {puntos} pts";
-    }
+    public class ChallengeSpecial:Challenge{ }
 }

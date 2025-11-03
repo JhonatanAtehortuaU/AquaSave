@@ -45,6 +45,9 @@ namespace AquaSave.Repositories
             ));
         }
 
+        //Obtener Usuarios
+        public List<User> ObtenerUsuarios() => _users;
+
         //Validar que un usuario este registrado y permitir el login
         public User Login(string correo, string contrasena)
         {
@@ -74,11 +77,5 @@ namespace AquaSave.Repositories
             _users.Add(nuevoUser);
             return nuevoUser;
         }
-
-        public List<User> ObtenerUsuarios()
-        {
-            return _users;
-        }
-
     }
 }

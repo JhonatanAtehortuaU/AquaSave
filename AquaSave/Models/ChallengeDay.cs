@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 namespace AquaSave.Models
 {
-    public class ChallengeDay: Challenge
-    {
-        public override string ObtenerInformacion() => $"Reto diario: {titulo} - {puntos} pts";
-    }
+    public class ChallengeDay: Challenge {}
 }

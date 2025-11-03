@@ -48,11 +48,26 @@ namespace AquaSave.Forms
                 return;
             }
 
-            var nuevoUsuario = _repo.AgregarUsuario(nombreCompleto, correo, contrasena, "user");
+            // Validar que no exista un usuario con ese correo
+            if (_repo.ObtenerUsuarios().Exists(u => u.correo == correo))
+            {
+                MessageBox.Show("Ya existe un usuario con ese correo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            MessageBox.Show($"Usuario agregado: {nuevoUsuario.nombreCompleto}");
+            try
+            {
+                var nuevoUsuario = _repo.AgregarUsuario(nombreCompleto, correo, contrasena, "user");
 
-            AbrirFormInicioSesion();
+                MessageBox.Show($"Usuario agregado: {nuevoUsuario.nombreCompleto}");
+
+                AbrirFormInicioSesion();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show($"Error al crear usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private bool CorreoValido(string correo)

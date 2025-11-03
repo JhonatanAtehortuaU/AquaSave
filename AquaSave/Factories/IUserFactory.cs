@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace AquaSave.Factories
 {
+    //Interfaz Factory User
     public interface IUserFactory
     {
         User Crear(int id, string nombreCompleto, string correo, string contrasena, string rol);

@@ -55,6 +55,7 @@
             this.dataGridDiarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridDiarios.Size = new System.Drawing.Size(800, 119);
             this.dataGridDiarios.TabIndex = 0;
+            this.dataGridDiarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridDiarios_CellDoubleClick);
             // 
             // dataGridSemanales
             // 
@@ -68,7 +69,7 @@
             this.dataGridSemanales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridSemanales.Size = new System.Drawing.Size(800, 134);
             this.dataGridSemanales.TabIndex = 1;
-            this.dataGridSemanales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridDiarios_CellDoubleClick);
+            this.dataGridSemanales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSemanales_CellDoubleClick);
             // 
             // FormMain
             // 
