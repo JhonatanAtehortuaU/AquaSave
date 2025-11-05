@@ -63,7 +63,7 @@ namespace AquaSave.Factories
                         titulo = titulo,
                         descripcion = descripcion,
                         puntos = puntos,
-                        tipo = "semanal",
+                        tipo = "especial",
                         dificulta = dificultad,
                         usuarioAsig = usuarioAsig
                     };
